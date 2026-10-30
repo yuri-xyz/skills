@@ -13,13 +13,18 @@ directory exists. With no names, install every skill. Installed
 skills with the same names are replaced, except ones that are
 links, which are skipped."
 
+# The script's own path, read here because inside a function a piped script
+# reports `bash`, which would make a `skills/` in the current directory look
+# like a clone. It is empty when piped from curl.
+self=${BASH_SOURCE[0]:-}
+
 # Find the skills: the Nix store, the clone this script sits in, or, when piped
 # from curl, a fresh download.
 find_skills() {
   if [[ -n ${SKILLS_SRC:-} ]]; then
     src=$SKILLS_SRC
-  elif [[ -n ${BASH_SOURCE[0]:-} && -d $(dirname "${BASH_SOURCE[0]}")/skills ]]; then
-    src=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/skills
+  elif [[ -f $self && -d $(dirname "$self")/skills ]]; then
+    src=$(cd "$(dirname "$self")" && pwd)/skills
   else
     work=$(mktemp -d)
     trap 'rm -rf "$work"' EXIT

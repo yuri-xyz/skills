@@ -91,7 +91,7 @@ nix fmt            # format flake.nix
 nix flake check    # skill frontmatter, Nix formatting, and Nix lint
 ```
 
-## How the pieces fit
+## Core concepts
 
 ### Agenda
 
