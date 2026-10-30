@@ -1,0 +1,5 @@
+interface:
+  short_description: "Give step-by-step instructions for what the user must do"
+  default_prompt: "Use $instructions to lay out exactly what I need to do myself, step by step."
+policy:
+  allow_implicit_invocation: true

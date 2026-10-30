@@ -1,0 +1,3 @@
+interface:
+  short_description: "Confirm a bug's root cause and fix it at its origin, upstream too"
+  default_prompt: "Use $root-cause to investigate and confirm the root cause of this issue, then fix it where it originates, upstream in code we own if needed, with no workarounds or temporary patches."

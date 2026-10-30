@@ -1,0 +1,3 @@
+interface:
+  short_description: "Commit pending work without reviewing or changing it"
+  default_prompt: "Use $git-commit to skim the pending changes only as much as the message needs, exclude generated artifacts, change nothing else, and commit in the style the repository documents or its last 5 commits share, falling back to a conventional commit with a 3 to 6 bullet body, using plain git."

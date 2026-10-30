@@ -1,0 +1,3 @@
+interface:
+  short_description: "Harvest improvements from a reference repo"
+  default_prompt: "Use $harvest to investigate what a reference repository does differently, confirm each candidate improvement with me one at a time, then plan the accepted ones with $agenda-plan-create."

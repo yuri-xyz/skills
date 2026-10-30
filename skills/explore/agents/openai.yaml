@@ -1,0 +1,3 @@
+interface:
+  short_description: "Read broader relevant code context"
+  default_prompt: "Use $explore to inspect the relevant code paths, callers, tests, and nearby helpers before drawing conclusions."

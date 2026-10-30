@@ -1,0 +1,3 @@
+interface:
+  short_description: "Replace bespoke copies with existing generics"
+  default_prompt: "Use $refactor-dedupe to find code here that re-implements something the project already provides, and route it to the existing implementation."

@@ -1,0 +1,3 @@
+interface:
+  short_description: "Search local Claude Code and Codex session traces"
+  default_prompt: "Use $traces to find the earlier agent session I'm referring to and summarize what it shows."

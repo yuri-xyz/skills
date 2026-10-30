@@ -1,0 +1,3 @@
+interface:
+  short_description: "Research and propose roadmap ideas, then record the chosen ones"
+  default_prompt: "Use $agenda-roadmap to research this project and its field, propose abstract roadmap ideas, confirm which are worth pursuing with $interview, record them as .agenda roadmap entries, and offer an $agenda-plan-create plan for each."

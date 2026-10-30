@@ -1,0 +1,3 @@
+interface:
+  short_description: "Design practical OpenAPI contracts"
+  default_prompt: "Use $openapi to create or review this HTTP API contract with practical OpenAPI guidance."

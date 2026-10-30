@@ -1,0 +1,3 @@
+interface:
+  short_description: "Review robust long-term architecture fit"
+  default_prompt: "Use $approach to review the recent proposal, inspect relevant code, and recommend the cleanest long-term solution."

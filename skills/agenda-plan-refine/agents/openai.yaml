@@ -1,0 +1,3 @@
+interface:
+  short_description: "Refine an agenda plan with verified implementation context"
+  default_prompt: "Use $agenda-plan-refine to inspect the current implementation and research, then continuously improve the existing agenda plan until it is concrete and implementation-ready."

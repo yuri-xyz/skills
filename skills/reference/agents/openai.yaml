@@ -1,0 +1,3 @@
+interface:
+  short_description: "Learn from references without copying"
+  default_prompt: "Use $reference to adapt guidance from this reference into the current project."

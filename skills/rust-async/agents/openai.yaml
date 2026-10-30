@@ -1,0 +1,3 @@
+interface:
+  short_description: "Rust async and sync code practices"
+  default_prompt: "Use $rust-async to review Rust async/sync boundaries, choose the right concurrency mechanism, and avoid common async pitfalls."

@@ -1,0 +1,3 @@
+interface:
+  short_description: "Ask clear questions to lock user decisions"
+  default_prompt: "Use $interview to ask about ten high-quality clarifying questions, using the structured ask tool when available and stable Markdown answer IDs otherwise."

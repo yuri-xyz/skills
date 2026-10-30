@@ -1,0 +1,3 @@
+interface:
+  short_description: "Draft initial repository agent instructions"
+  default_prompt: "Use $agents-md-init to create an initial AGENTS.md for this repository."

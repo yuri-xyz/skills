@@ -1,0 +1,6 @@
+interface:
+  short_description: "Create a project-local skill tracked in its repository"
+  default_prompt: "Use $local-create-skill to create a skill for this project only, store it in this repository, and make sure git tracks it."
+
+policy:
+  allow_implicit_invocation: false

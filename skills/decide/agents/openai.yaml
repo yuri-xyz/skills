@@ -1,0 +1,3 @@
+interface:
+  short_description: "Research and judge a complex decision before proposing"
+  default_prompt: "Use $decide to think hard, research locally and on the web, compare and judge the options, check for hacks and layering, and propose the best overall solution to this problem."

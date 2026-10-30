@@ -1,0 +1,3 @@
+interface:
+  short_description: "Proceed with clearly fitting recommendations"
+  default_prompt: "Use $recommended to continue with the best fitting recommendations in this task."

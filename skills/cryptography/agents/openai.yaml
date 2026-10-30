@@ -1,0 +1,3 @@
+interface:
+  short_description: "Design and review secure cryptographic code"
+  default_prompt: "Use $cryptography to design or review this cryptographic implementation."

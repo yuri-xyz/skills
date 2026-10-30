@@ -1,0 +1,3 @@
+interface:
+  short_description: "Document recent changes in comments and in the docs they made stale."
+  default_prompt: "Use $document to inspect the pending diff, add inline comments where changes need durable why-context, and update the README, docs, spec, or agent instructions the changes made stale."

@@ -1,0 +1,3 @@
+interface:
+  short_description: "Find reusable constants and abstractions"
+  default_prompt: "Use $refactor-consolidate to audit this code for pragmatic opportunities to reuse constants, helpers, and abstractions."

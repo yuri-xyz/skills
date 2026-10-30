@@ -1,0 +1,3 @@
+interface:
+  short_description: "Capture remaining gaps as agenda tasks"
+  default_prompt: "Use $gaps-record to turn the gaps left by the recent work into agenda tasks, marking tasks with open decisions as not ready."

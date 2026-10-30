@@ -1,0 +1,3 @@
+interface:
+  short_description: "Check recent work for workaround layers and require root-cause fixes."
+  default_prompt: "Use $layering to review recent changes for layered patches, hacks, overrides, or workaround logic, and replace them with flat root-cause fixes."

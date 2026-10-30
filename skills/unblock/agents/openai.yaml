@@ -1,0 +1,6 @@
+interface:
+  short_description: "Settle open decisions in blocked agenda tasks and plans with $decide"
+  default_prompt: "Use $unblock to decide the open technical decisions in blocked agenda tasks and plans with $decide, confirm the human-level ones with me, and report what became ready."
+
+policy:
+  allow_implicit_invocation: false

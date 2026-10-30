@@ -1,0 +1,6 @@
+interface:
+  short_description: "Guide an idea from research to an agreed plan or change"
+  default_prompt: "Use $wizard to research this idea, question me thoroughly on architecture and product decisions, surface blockers, settle technical decisions with $decide, then plan it if it is large or implement it after I confirm if it is small."
+
+policy:
+  allow_implicit_invocation: true

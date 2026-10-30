@@ -1,0 +1,6 @@
+interface:
+  short_description: "Bundle related ready agenda tasks into plans"
+  default_prompt: "Use $pending-bundle to group related ready agenda tasks into plans with $agenda-plan-create and remove the tasks each plan replaces."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,3 @@
+interface:
+  short_description: "Write, restructure, or review a project's README"
+  default_prompt: "Use $readme to write or restructure this project's README as a minimal, glanceable front page: a hero, a tagline, GitHub-optimized showcase GIFs with light and dark variants, a short install, and the license, with every heading at ###."

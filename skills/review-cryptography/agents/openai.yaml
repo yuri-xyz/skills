@@ -1,0 +1,3 @@
+interface:
+  short_description: "Review cryptography code for misuse"
+  default_prompt: "Use $review-cryptography to review this change for nonce or key reuse, unauthenticated encryption, weak primitives, insecure randomness, timing or error oracles, downgrade, and leaked keys."

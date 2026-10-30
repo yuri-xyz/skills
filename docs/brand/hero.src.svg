@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1720" height="602" viewBox="0 0 1720 602">
+  <!-- render.sh fills the backdrop markers from ../diagrams/build.py. -->
+  <defs>
+<!-- backdrop defs -->
+    <radialGradient id="spot" cx="0.78" cy="0.45" r="0.55">
+      <stop offset="0" stop-color="#7c5cff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8b7bff"/>
+      <stop offset="1" stop-color="#4fd1c5"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+<!-- backdrop -->
+  <rect width="1720" height="602" fill="url(#spot)" clip-path="url(#card)"/>
+
+  <g transform="scale(1.075)">
+    <!-- Wordmark -->
+    <g font-family="JetBrains Mono" fill="#e8ecff">
+      <text x="110" y="250" font-size="148" font-weight="800" letter-spacing="-6">skills</text>
+      <rect x="116" y="284" width="132" height="8" rx="4" fill="url(#accent)"/>
+      <text x="112" y="356" font-size="34" font-weight="500" fill="#b6bdd9">Agent skills for Claude Code, Codex,</text>
+      <text x="112" y="402" font-size="34" font-weight="500" fill="#b6bdd9">and other coding agents.</text>
+    </g>
+
+    <!-- Card stack: SKILL.md files -->
+    <g font-family="JetBrains Mono" font-size="21">
+      <g transform="translate(1010 70) rotate(6)" opacity="0.55" filter="url(#shadow)">
+        <rect width="460" height="300" rx="18" fill="#1b2142" stroke="#2c3463"/>
+      </g>
+      <g transform="translate(975 105) rotate(2.5)" opacity="0.8" filter="url(#shadow)">
+        <rect width="460" height="300" rx="18" fill="#1d2448" stroke="#323b6e"/>
+      </g>
+      <g transform="translate(930 150) rotate(-2)" filter="url(#shadow)">
+        <rect width="500" height="320" rx="18" fill="#20284f" stroke="#3b4580"/>
+        <circle cx="34" cy="34" r="7" fill="#ff6b81"/>
+        <circle cx="58" cy="34" r="7" fill="#ffc861"/>
+        <circle cx="82" cy="34" r="7" fill="#5ee3a1"/>
+        <text x="112" y="41" fill="#8d97c9">skills/decide/SKILL.md</text>
+        <line x1="0" y1="62" x2="500" y2="62" stroke="#3b4580"/>
+        <text x="32" y="108" fill="#6f78a8">---</text>
+        <text x="32" y="146"><tspan fill="#8b7bff">name</tspan><tspan fill="#8d97c9">: </tspan><tspan fill="#e8ecff">decide</tspan></text>
+        <text x="32" y="184"><tspan fill="#8b7bff">description</tspan><tspan fill="#8d97c9">: </tspan><tspan fill="#4fd1c5">Use when facing</tspan></text>
+        <text x="32" y="216" fill="#4fd1c5">  an important, complex, or</text>
+        <text x="32" y="248" fill="#4fd1c5">  hard-to-reverse technical</text>
+        <text x="32" y="280" fill="#4fd1c5">  decision ...</text>
+      </g>
+    </g>
+  </g>
+</svg>

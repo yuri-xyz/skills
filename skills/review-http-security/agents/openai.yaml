@@ -1,0 +1,3 @@
+interface:
+  short_description: "Review HTTP servers and APIs for hardening gaps"
+  default_prompt: "Use $review-http-security to review this server or API and its hosting config for missing auth checks, CORS and header gaps, missing limits and timeouts, SSRF, proxy trust mistakes, and exposed endpoints."

@@ -1,0 +1,29 @@
+# Nix
+result
+result-*
+.direnv/
+
+# Local agent instructions and private workflow material
+AGENTS.local.md
+CLAUDE.local.md
+.claude/
+.codex/
+.agenda/
+.spec/
+.debug/
+.refs/
+.licensing/
+*.jsonl
+
+# Secrets
+.env
+.env.*
+*.pem
+*.key
+
+# Editors and OS
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/

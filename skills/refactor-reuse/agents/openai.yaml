@@ -1,0 +1,3 @@
+interface:
+  short_description: "Check for existing code before creating new"
+  default_prompt: "Use $refactor-reuse to check whether something similar to this already exists before creating a new instance."

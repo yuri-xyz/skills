@@ -1,0 +1,3 @@
+interface:
+  short_description: "Check work and builds for personal or machine details"
+  default_prompt: "Use $review-pii to check recent work and anything it ships for my name, non-GitHub emails, phone numbers, home paths, hostnames, IP or MAC addresses, hardware or disk IDs, and credentials."

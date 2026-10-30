@@ -1,0 +1,3 @@
+interface:
+  short_description: "Prefer targeted manual edits over automation."
+  default_prompt: "Use $manual to make this change with targeted manual edits instead of scripts, codemods, or broad replacements."

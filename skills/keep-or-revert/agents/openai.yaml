@@ -1,0 +1,3 @@
+interface:
+  short_description: "Review whether prior fixes should stay"
+  default_prompt: "Use $keep-or-revert to review whether the previous changes are still worth keeping or should be manually removed."
