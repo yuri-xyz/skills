@@ -1,3 +1,0 @@
-interface:
-  short_description: "Check for hacky workaround direction"
-  default_prompt: "Use $hacky to pause and check whether the current direction is a hacky workaround or a proper root-cause solution."

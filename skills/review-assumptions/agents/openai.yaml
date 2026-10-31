@@ -1,0 +1,3 @@
+interface:
+  short_description: "List and verify the assumptions behind recent work"
+  default_prompt: "Use $review-assumptions to list every assumption made in the recent work or the topic at hand, align on intent and preference assumptions with $interview first, then check the rest against evidence and fix or report what turned out wrong."

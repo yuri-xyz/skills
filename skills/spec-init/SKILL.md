@@ -1,6 +1,6 @@
 ---
 name: spec-init
-description: Explicit invocation only. Use when the user asks to create a project's initial `.spec/` specification.
+description: Use when the user explicitly asks to create a project's initial `.spec/` specification.
 ---
 
 # Spec Init

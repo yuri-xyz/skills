@@ -1,3 +1,0 @@
-interface:
-  short_description: "Type-safe TypeScript without escape hatches"
-  default_prompt: "Use $typescript to model this code's states in the type system, make its branching exhaustive, and remove escape hatches such as any, casts, and non-null assertions."

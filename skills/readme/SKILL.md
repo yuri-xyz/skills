@@ -24,7 +24,9 @@ screenshots. Keep accurate text the user wrote by hand.
 
 ## Layout
 
-Use these parts in order, leaving out any that do not apply:
+Use these parts in order. Every README has the **What it is**, **Install**,
+and **Usage** sections, headed exactly `### What it is`, `### Install`, and
+`### Usage`; leave out any other part that does not apply.
 
 1. **Hero.** The logo or banner on a designed background image, centered,
    with light and dark variants when the art depends on the page theme.
@@ -37,13 +39,16 @@ Use these parts in order, leaving out any that do not apply:
 4. **Showcase.** Animated GIFs of the product or its features in use, each
    followed by one centered caption line stating one fact. This carries
    the page; prefer one more GIF over one more paragraph.
-5. **Why.** Up to five short bullets, each a concrete, user-facing claim,
-   such as "Matches are exhaustive and errors are typed values". No slogans
-   such as "blazingly fast" or "modern". Skip it when the showcase already
-   says it.
-6. **Install.** The shortest route to a first run, in one small code block.
+5. **What it is.** At most two short paragraphs of plain, human-readable
+   prose on what the project is, who it is for, and what problem it solves,
+   written for someone who has never heard of it. No bullet lists, jargon,
+   internals, or slogans such as "blazingly fast" or "modern".
+6. **Install.** The shortest route to having it, in one small code block.
    Link the docs for anything beyond it.
-7. **License.** One or two sentences, the license linked to its file, plus
+7. **Usage.** The first thing a user does with it: a short command, code, or
+   config example with its result, covering the main use only. Link the docs
+   for options and the rest.
+8. **License.** One or two sentences, the license linked to its file, plus
    any exception.
 
 A development section is optional: at most a dev-shell command and one
@@ -55,7 +60,8 @@ Leave out:
 - the tech stack, dependency lists, architecture, internal modules, or
   implementation details;
 - long instructions, configuration references, option tables, or FAQs;
-- badges, tables of contents, "Introduction" or "About" sections,
+- badges, tables of contents, "Introduction" or "About" sections beyond
+  What it is,
   changelogs, and roadmaps.
 
 Link to them when they exist elsewhere.
@@ -72,6 +78,9 @@ Link to them when they exist elsewhere.
   message, including what an animation does, so the page reads without
   images. For example: "Operators such as -> and => turning into ligatures
   and back, each character keeping its cell".
+- Run every piece of prose, including the tagline, captions, and bullets,
+  through `/humanize` once the draft is done, so it reads like the author
+  wrote it rather than like generated copy.
 - Use fenced code blocks with a language tag, prose wrapped near 80
   columns, and relative links for repo files. Use emoji sparingly, and only
   when the project already uses them.
@@ -93,7 +102,7 @@ Every image is made for GitHub's README column, which renders about 830 to
   10 MB. Trim GIFs to a short loop, lower the frame rate (12 to 20 fps is
   enough for UI), limit the palette, and cut the size before the quality.
   Optimize with `gifski` or `gifsicle -O3 --lossy`, PNGs with `oxipng`, and
-  SVGs with `svgo`, through a temporary tool install if it is missing.
+  SVGs with `svgo`, run through `/nix-run`.
 - **Themes.** When art depends on the background, ship `-light` and `-dark`
   variants and switch with `<picture>`:
 
@@ -121,10 +130,13 @@ The root README is for people deciding whether to use the project. Usage
 guides, architecture, and references belong in `docs/` or the site, linked
 from it. Give a subdirectory its own README only when it is a standalone
 unit with its own audience, such as a published package, crate, or flake,
-and keep it to that unit's tagline, install, and license.
+and keep it to that unit's tagline, What it is, Install, Usage, and
+license.
 
 ## Verify
 
+- Confirm the README has its What it is, Install, and Usage sections, and
+  that the prose has had its `/humanize` pass.
 - Run or check every command shown, inside the project's dev shell.
 - Check that every link and image path resolves, both theme variants exist,
   and each asset meets the size and weight limits above.
@@ -160,10 +172,20 @@ One fact the animation proves.
 
 </div>
 
+### What it is
+
+One or two short paragraphs: what it is, who it is for, and what it solves.
+
 ### Install
 
 ```sh
 install-command
+```
+
+### Usage
+
+```sh
+name do-the-main-thing   # what it does
 ```
 
 ### License

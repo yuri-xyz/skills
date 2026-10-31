@@ -1,0 +1,3 @@
+interface:
+  short_description: "Treat this instruction as a hint, not a directive"
+  default_prompt: "Use $hint to treat this as a hint worth evaluating rather than a directive, and decide whether to use it."

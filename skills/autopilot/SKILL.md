@@ -62,9 +62,8 @@ Resume an entry with a stale worktree or session from its partial work, as
    agenda changes as entries finish and other agents work.
 2. **Implement** each entry in the unit with `/agenda-implement`, recording
    progress and moving it to `done` once it meets its completion bar. Settle
-   technical questions that come up yourself, choosing what fits the
-   repository's existing conventions, and note the choice in the entry. Run only the narrow checks
-   the entry needs, under `nice`.
+   technical questions that come up with `/decide`, and note the choice in
+   the entry. Run only the narrow checks the entry needs, under `nice`.
 3. **Commit** the unit, scoped to the files the unit
    changed, including its agenda entries. Other agents may share the
    checkout; never commit, revert, stash, or reformat their changes.

@@ -1,6 +1,6 @@
 ---
 name: root-cause
-description: Use when a bug or problem needs its root cause found and fixed where it originates, including in upstream code we own, rather than worked around.
+description: Use when a bug or problem needs its root cause found and fixed where it originates, including in upstream code we own, or when the current direction or a fix might be a hack, workaround, or patch layered over broken behavior instead.
 ---
 
 # Root Cause
@@ -8,6 +8,8 @@ description: Use when a bug or problem needs its root cause found and fixed wher
 ## Objective
 
 The current issue gets fixed at its origin. Investigate until the root cause is confirmed, then change the code that owns the defect. Where the defect lives in a library, package, or dependency we control, fix it there and update this project's pin to that fix.
+
+When the question is only whether the current direction or a recent change is a proper fix, run the checkpoint in [Check The Current Direction](#check-the-current-direction) and continue from its verdict.
 
 ## What A Root Cause Is
 
@@ -18,7 +20,58 @@ The root cause is the origin of the bug, meaning the first place where correct i
 
 Prefer fixing the class when the same mistake can plainly happen again through the same path. Fix the single instance when it really is a one-off.
 
-A fix that stacks behavior on top of the defect is not a root-cause fix. `/layering` defines those signatures, and none of them are allowed here.
+## Workaround Signatures
+
+A fix that stacks behavior on top of the defect is not a root-cause fix. This skill owns that definition; other skills refer to it rather than restating the list.
+
+A layered fix makes a symptom disappear by stacking new behavior on top of existing behavior. It often looks like an override, wrapper, hook, activation script, compatibility shim, special case, duplicated branch, retry, fallback, cleanup pass, or post-processing step whose real purpose is to correct something earlier code produced incorrectly. A change shows a workaround signature when it:
+
+- Adds logic whose main job is to fix output from other logic.
+- Adds an override because the original source of truth is inconvenient to change.
+- Duplicates behavior instead of moving the existing behavior to the right owner.
+- Adds a script, hook, migration, cleanup, postprocessor, or fallback to mask a defect.
+- Adds a special case that could be removed by simplifying the model or API.
+- Preserves broken intermediate state and repairs it later.
+- Hides an error instead of fixing why it happens.
+- Depends on timing, ordering, global state, or manual operator discipline.
+- Makes one observed case pass while the general failure mode survives.
+- Adds temporary code with no removal path.
+- Makes future readers understand two paths when one corrected path would do.
+
+### Allowed Exceptions
+
+An explicit layer is fine when it is the real domain boundary, such as:
+
+- Adapters between external APIs and internal models.
+- Compatibility support for an intentionally supported old interface.
+- Security checks that must defend in depth.
+- Feature flags or migrations with a planned removal path.
+
+When keeping a layer, explain why it is a real boundary instead of a workaround.
+
+## Check The Current Direction
+
+Use this as a short checkpoint mid-implementation or as a quality gate after making or reviewing changes. It is not a full architecture review; keep it brief unless it exposes a real problem, and escalate to `/approach` when the answer needs real alternatives compared or the architecture judged.
+
+1. Pause the current work and inspect the plan, recent edits, and relevant code as needed.
+2. Check them against the workaround signatures above.
+3. If the direction is a proper fix, say so in one or two sentences and continue the original work without derailing.
+4. If it is layered, hacky, or uncertain, stop before adding more code. Name the layer and the underlying behavior it compensates for, and identify the owner of that behavior.
+5. Replace the layered approach with a root-cause change at the ownership boundary, following the rest of this skill. Prefer deleting workaround code, simplifying control flow, or correcting data or model generation over adding another condition. If the user asked only for the check, ask for explicit confirmation before continuing with either path.
+
+Report the verdict in one of these forms:
+
+```markdown
+Proper: <brief reason>. Continuing.
+```
+
+or:
+
+```markdown
+Layered: <the layer and what it compensates for>.
+
+Better path: <root-cause direction at the owning code>.
+```
 
 ## Investigate
 
@@ -62,7 +115,7 @@ Do not patch around the defect locally. Report the confirmed root cause, the ups
 
 ## Not Allowed
 
-- Workarounds, wrappers, overrides, retries, fallbacks, special cases, or post-processing that hide the defect.
+- Any of the workaround signatures above outside the allowed exceptions.
 - Temporary fixes, including `/temp` changes and trials standing in for the real fix.
 - Hacky patches, such as vendored patch files, monkey-patching, or editing generated output or store paths, instead of fixing the source.
 - Fixing only the reported instance when the same cause visibly produces others.

@@ -81,16 +81,6 @@ cp global/AGENTS.md ~/.claude/CLAUDE.md   # Claude Code
 cp global/AGENTS.md ~/.codex/AGENTS.md    # Codex
 ```
 
-## Development
-
-The Nix flake provides the installer, a dev shell, and checks.
-
-```sh
-nix develop        # nixfmt and statix
-nix fmt            # format flake.nix
-nix flake check    # skill frontmatter, Nix formatting, and Nix lint
-```
-
 ## Core concepts
 
 ### Agenda
@@ -122,54 +112,42 @@ At the end of longer work, the agent reports what it left undone, and each
 leftover is fixed, decided, or saved as a task depending on its tag.
 
 <p align="center">
-  <img src="docs/diagrams/finishing.svg" width="860" alt="Finishing work: /checks runs, and /gaps tags each leftover as unattended, fixed now by /unattended; decision, settled by /decide then fixed or recorded; or deferred, saved by /gaps-record; /autofix settles every tag">
+  <img src="docs/diagrams/finishing.svg" width="860" alt="Finishing work: /checks runs, and /gaps tags each leftover as unattended, fixed now; decision, settled by /decide then fixed or recorded; or deferred, saved by /gaps-record; /gaps-settle settles every tag">
 </p>
 
 ### Decisions
 
-Decisions come in two kinds. Technical ones, such as which dependency to use,
-which code pattern fits, or how to structure a module, have an answer an
-engineer could defend.
+Agents sort every decision into one of two kinds:
 
-Agents are good at these once they have done the research, so `/decide` lets
-them settle the decision on their own instead of stopping to ask. It looks at
-the code and the wider ecosystem before it judges, drops any option that
-patches a symptom instead of the cause, and reports what it chose so you can
-override it.
-
-Human decisions are about direction, intent, look and feel, cost, or anything
-large enough to reshape the project. They have no technical winner, so agents
-leave them to you. They are not dropped, though: each one is saved as a task
-with its options and a recommendation, so no pending work gets lost.
+- **Technical:** which dependency, pattern, or module structure to use.
+  `/decide` researches these, settles them without asking, and tells you what
+  it picked so you can override it.
+- **Human:** direction, look and feel, cost, or anything that reshapes the
+  project. These go to you, saved as a task with options and a
+  recommendation.
 
 <p align="center">
-  <img src="docs/diagrams/decisions.svg" width="860" alt="The /decide pipeline: human or large decisions are saved as a task for you with /gaps-record; technical ones go through /research, then up to three /options, rated by /criteria with /hacky and /layering, confirmed by /approach or sent back to revise, ending in a proposal">
+  <img src="docs/diagrams/decisions.svg" width="860" alt="The /decide pipeline: human or large decisions are saved as a task for you with /gaps-record; technical ones go through /research, then up to three /options, rated by /criteria and screened by /root-cause, confirmed by /approach or sent back to revise, ending in a proposal">
 </p>
 
 ### Spec
 
-A `.spec/` describes what the project promises. Code cites its entries, and
-any change that alters a promise syncs the spec in the same session.
+A `.spec/` describes what the project promises, so agents and people can check
+intent before changing anything.
 
-The spec records what the code can't: what the project does and deliberately
-doesn't do, how each feature should behave, which edge cases matter, and why.
-Type definitions and file tours stay in the code, which already states them.
-
-Features, rules that must never break, API routes, domain terms, and decisions
-each get their own files, with entries under stable IDs such as `§F-12` or
-`§INV-03`. Rules earned by a bug, an incident, or a rejected design keep their
-reason next to them, so a later agent doesn't undo a fix it can't see the
-point of.
-
-This gives agents and people one place to check intent before they change
-anything. A plain search for an ID finds every line of code and every test that
-depends on that promise, so it is clear what a change touches and what needs
-retesting.
-
-Because the spec is synced with the code in the same session, it stays
-accurate instead of drifting like ordinary docs. The few properties that are
-core and easy to get wrong can also be marked for formal verification, so a
-tool checks them instead of a reviewer.
+- **What it holds:** things the code can't say, such as what the project does
+  and deliberately doesn't do, how features behave, which edge cases matter,
+  and why. Types and file tours stay in the code.
+- **How it's organized:** features, never-break rules, API routes, domain
+  terms, and decisions each get their own files, with entries under stable IDs
+  such as `§F-12` or `§INV-03`.
+- **Why rules keep their reason:** a rule earned by a bug or a rejected design
+  says so, so a later agent doesn't undo a fix it can't see the point of.
+- **How code links to it:** code and tests cite the IDs, so a search for one
+  shows everything a change touches and what needs retesting.
+- **How it stays true:** any change that alters a promise updates the spec in
+  the same session, so it doesn't drift like ordinary docs. Core properties
+  that are easy to get wrong can be marked for formal verification.
 
 <p align="center">
   <img src="docs/diagrams/spec.svg" width="860" alt="Spec flow: /spec-init creates .spec/ on request under the /spec standard; code and tests cite its § IDs, and /spec-sync updates entries in the same session when a contract changes">
@@ -199,15 +177,15 @@ Plain-Markdown tasks, plans, notes, and roadmaps under `.agenda/`.
 - [`agenda`](skills/agenda/SKILL.md): Keeps your tasks, plans, notes, and roadmap as plain Markdown in the repo, readable by you and every agent.
 - [`agenda-task-create`](skills/agenda-task-create/SKILL.md): Turns a bug, idea, or follow-up from the chat into a task, so it isn't forgotten when the session ends.
 - [`agenda-note-create`](skills/agenda-note-create/SKILL.md): Saves findings, rationale, and references as notes, so the next session doesn't rediscover them.
-- ⭐ [`agenda-plan-create`](skills/agenda-plan-create/SKILL.md): Researches a larger change and writes a step-by-step plan an agent can carry out later without guessing.
+- [`agenda-plan-create`](skills/agenda-plan-create/SKILL.md) ⭐: Researches a larger change and writes a step-by-step plan an agent can carry out later without guessing.
 - [`agenda-plan-refine`](skills/agenda-plan-refine/SKILL.md): Checks an existing plan against the code and fills its gaps until it's ready to hand off.
-- ⭐ [`agenda-roadmap`](skills/agenda-roadmap/SKILL.md): Researches your project and its field, proposes features worth building, and records the ones you pick.
-- ⭐ [`agenda-implement`](skills/agenda-implement/SKILL.md): Carries a plan or task through to done, tracking progress in the file, and picks up where it left off.
+- [`agenda-roadmap`](skills/agenda-roadmap/SKILL.md) ⭐: Researches your project and its field, proposes features worth building, and records the ones you pick.
+- [`agenda-implement`](skills/agenda-implement/SKILL.md) ⭐: Carries a plan or task through to done, tracking progress in the file, and picks up where it left off.
 - [`agenda-readiness`](skills/agenda-readiness/SKILL.md): Tells which tasks are ready to start and why the rest are waiting, so agents never work on the wrong thing.
-- ⭐ [`pending`](skills/pending/SKILL.md): Shows what work is ready to start right now, at a glance.
-- [`pending-bundle`](skills/pending-bundle/SKILL.md): Groups many small ready tasks into a few larger plans, so an agent can take on bigger chunks at once.
-- ⭐ [`unblock`](skills/unblock/SKILL.md): Settles the open decisions holding tasks back, asking you only about the ones that are yours to make. Good for turning a backlog of blocked ideas into ready work, so your agent always has something to pick up.
-- ⭐ [`autopilot`](skills/autopilot/SKILL.md): Works through every ready task and plan on its own, committing each one, until nothing ready is left.
+- [`agenda-clean`](skills/agenda-clean/SKILL.md): Prunes stale tasks and plans that no longer apply, and brings outdated ones up to date.
+- [`pending`](skills/pending/SKILL.md) ⭐: Shows what work is ready to start right now, at a glance.
+- [`unblock`](skills/unblock/SKILL.md) ⭐: Settles the open decisions holding tasks back, asking you only about the ones that are yours to make. Good for turning a backlog of blocked ideas into ready work, so your agent always has something to pick up.
+- [`autopilot`](skills/autopilot/SKILL.md) ⭐: Works through every ready task and plan on its own, committing each one, until nothing ready is left.
 
 ### Workflow
 
@@ -215,42 +193,40 @@ Checks, commits, leftovers, and how the agent paces its work.
 
 - [`checks`](skills/checks/SKILL.md): Runs the project's own checks and gives you a one-line pass or fail for each.
 - [`fix-lints`](skills/fix-lints/SKILL.md): Fixes failing lints, type checks, builds, and tests at the cause, instead of silencing them.
-- ⭐ [`git-commit`](skills/git-commit/SKILL.md): Commits your pending work as one clean commit with an honest message, leaving generated junk out.
-- ⭐ [`git-worktree`](skills/git-worktree/SKILL.md): Gives the agent its own git worktree, so it can work in parallel without touching your checkout or other agents' work.
+- [`git-commit`](skills/git-commit/SKILL.md) ⭐: Commits your pending work as one clean commit with an honest message, leaving generated junk out.
+- [`git-worktree`](skills/git-worktree/SKILL.md) ⭐: Gives the agent its own git worktree, so it can work in parallel without touching your checkout or other agents' work.
 - [`git-worktree-finish`](skills/git-worktree-finish/SKILL.md): Merges a worktree's work back and removes it, only once nothing can be lost.
-- [`gaps`](skills/gaps/SKILL.md): Ends long work with a short list of what was left undone, so nothing slips through.
+- [`git-worktree-prune`](skills/git-worktree-prune/SKILL.md): Lands and removes worktrees that earlier sessions left behind, and leaves active ones alone.
+- [`gaps`](skills/gaps/SKILL.md): Shows you what work remains once the current work is done, so none of it gets lost.
 - [`gaps-record`](skills/gaps-record/SKILL.md): Saves leftover work as tasks, so it survives the session.
-- [`unattended`](skills/unattended/SKILL.md): Finishes the small, safe follow-ups on its own and leaves anything that needs you.
-- [`autofix`](skills/autofix/SKILL.md): Settles a whole list of leftovers in one go: fixes what's safe, decides what's technical, and records the rest.
+- [`gaps-settle`](skills/gaps-settle/SKILL.md): Settles leftovers in one go: fixes what's small and safe, decides what's technical, and records the rest.
 - [`fast-mode`](skills/fast-mode/SKILL.md): Spends the session writing code and saves slow builds and test suites for later, when you want to land a lot quickly.
 - [`readonly`](skills/readonly/SKILL.md): Investigates or audits without changing anything: no edits, scripts, or test runs.
-- [`manual`](skills/manual/SKILL.md): Makes small, careful, hand-made edits instead of scripted or sweeping rewrites.
+- [`careful`](skills/careful/SKILL.md): Works so nothing is lost: no destructive git commands, live systems changed one reversible step at a time, and a warning before anything that can't be undone.
 - [`instructions`](skills/instructions/SKILL.md): When you have to do something yourself, like a dashboard setting or a sign-in, you get exact click-by-click steps.
 - [`temp`](skills/temp/SKILL.md): Marks temporary changes clearly in the code, and tries uncertain fixes as marked trials that are kept or dropped once you've tested them.
 - [`document`](skills/document/SKILL.md): Documents recent changes: comments on why non-obvious code exists, and updates to the README, docs, or spec they made stale.
-- ⭐ [`run-app`](skills/run-app/SKILL.md): Starts the project's app locally in the background, so you can try it while the chat continues.
+- [`run-app`](skills/run-app/SKILL.md) ⭐: Starts the project's app locally in the background, so you can try it while the chat continues.
 - [`traces`](skills/traces/SKILL.md): Finds what was said or done in an earlier agent session, from its local transcripts.
 
 ### Decisions and judgment
 
 Reaching and testing decisions instead of taking the first plausible fix.
 
-- ⭐ [`decide`](skills/decide/SKILL.md): Lets the agent settle technical decisions itself, after research, and tells you what it chose so you can override it.
+- [`decide`](skills/decide/SKILL.md) ⭐: Lets the agent settle technical decisions itself, after research, and tells you what it chose so you can override it.
 - [`options`](skills/options/SKILL.md): Compares a few possible approaches side by side, with pros, cons, and a ranking.
-- ⭐ [`criteria`](skills/criteria/SKILL.md): Judges an idea on usefulness, soundness, consistency, and proportion, instead of a gut call.
+- [`criteria`](skills/criteria/SKILL.md) ⭐: Judges an idea on usefulness, soundness, consistency, and proportion, instead of a gut call.
 - [`approach`](skills/approach/SKILL.md): Checks whether a plan or fix is the clean, lasting way to do it before any work starts.
-- [`hacky`](skills/hacky/SKILL.md): Catches when the current direction is a workaround instead of a real fix.
-- [`layering`](skills/layering/SKILL.md): Spots patches stacked on top of broken behavior, and points to where the fix belongs.
 - [`keep-or-revert`](skills/keep-or-revert/SKILL.md): Decides which earlier changes still earn their place once you know more, and removes the rest.
 - [`fragile`](skills/fragile/SKILL.md): Replaces brittle checks, like string matching or guessed value lists, with parsers and types that hold up.
 - [`fallbacks`](skills/fallbacks/SKILL.md): Makes sure defaults and catch-alls don't quietly hide missing data or real errors.
-- [`root-cause`](skills/root-cause/SKILL.md): Finds where a bug really starts and fixes it there, even in upstream code you own.
+- [`root-cause`](skills/root-cause/SKILL.md): Finds where a bug really starts and fixes it there, even in upstream code you own, and catches workarounds stacked on top of broken behavior.
 - [`edge-case`](skills/edge-case/SKILL.md): Checks recent work against the edge cases you name, and fixes what it misses.
-- ⭐ [`recommended`](skills/recommended/SKILL.md): Lets the agent go ahead with its own recommendations instead of stopping to ask.
-- [`suggestion`](skills/suggestion/SKILL.md): Marks part of your request as a hint, so the agent weighs it instead of following it blindly.
+- [`recommended`](skills/recommended/SKILL.md) ⭐: Lets the agent go ahead with its own recommendations instead of stopping to ask.
+- [`hint`](skills/hint/SKILL.md): Marks part of your request as a hint, so the agent weighs it instead of following it blindly.
 - [`examples`](skills/examples/SKILL.md): Works out the full result from your examples, sketches, or placeholders.
-- ⭐ [`wizard`](skills/wizard/SKILL.md): Turns a rough idea into a clear, agreed plan through a guided conversation, for features or whole new projects.
-- ⭐ [`interview`](skills/interview/SKILL.md): Asks you focused questions before starting, so the agent builds what you meant.
+- [`wizard`](skills/wizard/SKILL.md) ⭐: Turns a rough idea into a clear, agreed plan through a guided conversation, for features or whole new projects.
+- [`interview`](skills/interview/SKILL.md) ⭐: Asks you focused questions before starting, so the agent builds what you meant.
 
 ### Research
 
@@ -258,7 +234,7 @@ Learning from the codebase, the web, papers, and other projects.
 
 - [`research`](skills/research/SKILL.md): Gathers the context from your code, its history, and the web before planning or fixing anything.
 - [`explore`](skills/explore/SKILL.md): Maps an unfamiliar part of the codebase before the agent changes it.
-- ⭐ [`research-web`](skills/research-web/SKILL.md): Researches current information online and answers with sources.
+- [`research-web`](skills/research-web/SKILL.md) ⭐: Researches current information online and answers with sources.
 - [`research-literature`](skills/research-literature/SKILL.md): Searches academic papers for ideas that can inform your work.
 - [`reference`](skills/reference/SKILL.md): Learns from a project, app, or design you point at, without copying it wholesale.
 - [`adapt`](skills/adapt/SKILL.md): Brings an outside feature or idea into your project so it fits the existing architecture.
@@ -284,6 +260,7 @@ Project specifications under `.spec/`.
 
 Focused reviews of changes and releases.
 
+- [`review-assumptions`](skills/review-assumptions/SKILL.md): Lists the assumptions behind recent work and checks each one, so you know what to trust.
 - [`review-bugs`](skills/review-bugs/SKILL.md): Hunts for hidden bugs in a change: off-by-ones, overflows, unbounded input, and other edge cases.
 - [`review-perf`](skills/review-perf/SKILL.md): Finds slowdowns a change introduces, like wasted work, extra allocations, or worse complexity.
 - [`review-security`](skills/review-security/SKILL.md): Reviews changes for security holes, or checks a machine or project for recent CVEs and compromises.
@@ -298,7 +275,7 @@ Focused reviews of changes and releases.
 
 ### Engineering
 
-Design patterns, testing, refactoring, dependencies, versioning, and interfaces.
+Design patterns, testing, dependencies, versioning, Nix, and interfaces.
 
 - [`pattern-kernel`](skills/pattern-kernel/SKILL.md): Keeps logic that guards money, data, or access in a small, pure core that is easy to audit and verify.
 - [`pattern-state-machine`](skills/pattern-state-machine/SKILL.md): Models multi-step workflows as explicit states and transitions, so impossible states can't happen.
@@ -306,24 +283,21 @@ Design patterns, testing, refactoring, dependencies, versioning, and interfaces.
 - [`formal-verification`](skills/formal-verification/SKILL.md): Helps you decide what's worth proving correct, and with which tool.
 - [`cryptography`](skills/cryptography/SKILL.md): Guides cryptographic choices toward proven libraries and safe defaults.
 - [`writing-tests`](skills/writing-tests/SKILL.md): Writes tests that check real behavior and catch regressions, not just raise coverage.
-- [`refactor-reuse`](skills/refactor-reuse/SKILL.md): Looks for existing code to reuse before writing something new.
-- [`refactor-consolidate`](skills/refactor-consolidate/SKILL.md): Merges duplicated values and logic into one shared place.
-- [`refactor-dedupe`](skills/refactor-dedupe/SKILL.md): Finds code that re-implements something the project already has.
-- [`refactor-split`](skills/refactor-split/SKILL.md): Splits oversized files into clear, idiomatic modules.
 - [`dependency-add`](skills/dependency-add/SKILL.md): Vets a new dependency's health, license, and risk before it goes in.
 - [`dependency-judge`](skills/dependency-judge/SKILL.md): Decides whether your own code should stay or be replaced by a maintained package.
 - [`dependency-tree-compress`](skills/dependency-tree-compress/SKILL.md): Finds small, risky dependencies you could replace with a few lines of your own code.
 - [`openapi`](skills/openapi/SKILL.md): Designs, implements, or reviews HTTP APIs and their OpenAPI descriptions.
 - [`cli`](skills/cli/SKILL.md): Builds command-line tools with clear help, output, and error messages.
-- [`rust`](skills/rust/SKILL.md): Writes Rust that leans on the type system and avoids escape hatches like `unwrap` and needless `clone`.
-- [`rust-async`](skills/rust-async/SKILL.md): Gets async Rust right: tasks, channels, cancellation, and sync boundaries.
-- [`typescript`](skills/typescript/SKILL.md): Writes TypeScript with precise types and no escape hatches like `any` or `@ts-ignore`.
+- [`nix`](skills/nix/SKILL.md): Writes idiomatic Nix for flakes, derivations, and NixOS or Home Manager modules.
+- [`nix-flake-init`](skills/nix-flake-init/SKILL.md): Gives a project a flake with pinned inputs, a real build, a dev shell, and checks.
+- [`nix-run`](skills/nix-run/SKILL.md): Runs a missing command-line tool once through `nix run` instead of installing it.
 
 ### Documentation
 
-READMEs, agent instruction files, and project skills.
+READMEs, agent instruction files, project skills, and prose.
 
 - [`readme`](skills/readme/SKILL.md): Writes READMEs people can take in at a glance: a hero, what it is, how to install, how to use.
+- [`humanize`](skills/humanize/SKILL.md): Rewrites prose that sounds AI-written so it reads like a person wrote it.
 - [`agents-md-init`](skills/agents-md-init/SKILL.md): Creates an `AGENTS.md` that tells coding agents how your repository works.
 - [`agents-md-compress`](skills/agents-md-compress/SKILL.md): Shortens an `AGENTS.md` without losing any of its rules.
 - [`local-create-skill`](skills/local-create-skill/SKILL.md): Creates a skill that belongs to one project, kept in its repository where Claude Code and Codex both find it.

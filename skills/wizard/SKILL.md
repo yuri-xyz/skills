@@ -1,6 +1,6 @@
 ---
 name: wizard
-description: Use when the user has a rough feature, behavior change, improvement, project, or exploration idea and wants to be guided to a clear, agreed approach before planning or implementing.
+description: Use when the user has a rough feature, behavior change, improvement, project, or exploration idea and wants to be guided to a clear, agreed approach before planning or implementing, or wants to start a new project or expand a project's scope without yet knowing what to build.
 ---
 
 # Wizard
@@ -14,7 +14,7 @@ change, something to improve, or an area to explore. The agent researches it,
 questions the user thoroughly until nothing about intent is left to guess,
 surfaces what could block the work, settles the technical decisions itself,
 and leaves the human decisions to the user. This skill combines `/research`,
-`/interview`, `/decide`, and `/agenda-plan-create`.
+`/interview`, `/decide`, `/agenda-roadmap`, and `/agenda-plan-create`.
 
 The wizard ends in one of two ways: an `.agenda` plan for a large undertaking,
 or an implementation of a small change after the user confirms it.
@@ -38,6 +38,21 @@ Restate the idea in a sentence or two: what the user wants, why, and what kind
 of request it is: new project, new feature, behavior change, improvement, or
 exploration. If the request is too vague to research at all, ask about it
 through `/interview` before researching.
+
+Then choose the path by how clear the user is about what to build:
+
+- **Clear about what to add**: a specific feature, change, or improvement.
+  Continue with the steps below, and propose follow-ups and improvements
+  beyond the request in step 5.
+- **Unsure what to build, but wants to start a new project or expand a
+  project's scope**: such as "set up this new project" or "what should this
+  grow into?". Run `/agenda-roadmap` first to research the project and its
+  field and record the directions the user picks. Then ask whether to carry
+  one of the recorded roadmap entries through the steps below; stop after the
+  roadmap if the user does not want to.
+
+When unsure which path applies, ask the user as part of the first
+`/interview` round.
 
 ### 2. Research with /research
 
@@ -110,10 +125,16 @@ researches, compares candidates with `/options`, rates them with
 `/criteria`, and checks for hacks and layering. Settle every remaining
 technical decision the same way, scaling `/decide`'s depth to the decision.
 
-Present the chosen approach with its runner-up and why it lost, every
-technical decision made along the way with a one-line reason, and any
-suggestions the research surfaced that go beyond the request, labeled as
-suggestions rather than folded into the scope. If `/decide` shows that a
+Present the chosen approach with its runner-up and why it lost, and every
+technical decision made along the way with a one-line reason.
+
+Then propose follow-ups and improvements that go beyond the request: natural
+next features, adjacent improvements the change enables or exposes, and
+directions it opens for the project. Ground each in the research, keep it to
+a few worthwhile ones, and label them as suggestions rather than folding them
+into the scope. Record the ones the user wants kept but not built now as
+deferred suggestions, or as roadmap entries following `/agenda-roadmap` when
+they are project direction rather than follow-up work. If `/decide` shows that a
 technical choice actually depends on an unanswered human question, return to
 step 3 for it.
 
@@ -154,6 +175,7 @@ the user instead of silently changing course.
 
 ## Report
 
+- The path taken, and the roadmap entries recorded if `/agenda-roadmap` ran.
 - The request as understood and the key research findings, with file
   references and source links.
 - The human decisions, including the architecture questions answered and
@@ -162,7 +184,8 @@ the user instead of silently changing course.
 - The chosen approach and the technical decisions `/decide` made, briefly.
 - The outcome: the plan file path and its readiness, or the changes made and
   the checks run with their results.
-- Suggestions the user deferred and any open follow-ups.
+- The follow-ups and improvements proposed, which the user accepted, deferred,
+  or recorded as roadmap entries, and any open follow-ups.
 
 ## Boundaries
 

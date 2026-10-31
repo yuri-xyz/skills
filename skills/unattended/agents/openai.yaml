@@ -1,3 +1,0 @@
-interface:
-  short_description: "Carry out the unattended options from this conversation"
-  default_prompt: "Use $unattended to select and complete the options from this conversation that qualify as unattended, leaving the rest for me."

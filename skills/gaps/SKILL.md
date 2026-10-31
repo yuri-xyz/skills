@@ -32,13 +32,13 @@ Omit:
 
 ## Categories
 
-Tag every item with exactly one category. `/autofix` acts on each tag without
+Tag every item with exactly one category. `/gaps-settle` acts on each tag without
 asking, so when an item is borderline, choose the more cautious category.
 Write the list as plain Markdown, never inside a code block, so tools that
 pick up the items do not mistake it for an example.
 
 - `unattended`: a follow-up that can be finished now with no input, meeting
-  every criterion of `/unattended`: obvious, due now, unblocked, quick or
+  every criterion of `/gaps-settle`: obvious, due now, unblocked, quick or
   behavior-preserving, and safe.
 - `decision`: worth doing now and safe to do, but it needs a technical
   decision first, as `/decide` defines it, that an agent can settle without

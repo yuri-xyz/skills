@@ -48,6 +48,16 @@ If you hit a blocker:
 
 Only stop and ask the user when the next step requires a decision that cannot be inferred safely from the entry or codebase.
 
+## Better Approaches Found Mid-Work
+
+An entry's locked decisions, chosen libraries or dependencies, assumptions, and approaches record the best knowledge available when it was written, not a contract to follow verbatim. When implementation uncovers something better, such as a cleaner approach, a better-suited or better-maintained dependency, a wrong or outdated assumption, or an option the entry did not weigh, prefer the better path regardless of what the entry says:
+
+1. When the better path is clear, take it. When you are unsure, settle it with `/decide` as a delegated decision, scaled to the stakes, weighing the new evidence against the entry's original rationale.
+2. Update the entry before continuing: revise the affected items, decisions, and checklists, and record what changed, why, and the evidence in the plan's `## Progress Notes` or the task's `## Notes`. Never leave the entry describing an approach the code no longer follows.
+3. Continue implementing without waiting for the user.
+
+Stop and ask only when the change needs explicit human input by `/decide`'s definition, such as product or UX direction, scope, removed features, data or money, outward-facing effects, or reversing a decision the entry records as the user's own choice. Adding a new dependency still goes through `/dependency-add`, which decides when the user's approval is needed.
+
 ## Testing And Verification
 
 Add or update tests for meaningful behavior changes. Choose the test scope based on risk:

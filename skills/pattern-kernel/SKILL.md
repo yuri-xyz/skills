@@ -94,7 +94,7 @@ kernel with no named invariants is just an extra layer.
   storage cannot swap them.
 - **Auditable size.** Keep the kernel small enough for one careful review
   sitting. When it grows, first ask whether the new code passes the admission
-  rule; split by responsibility (`/refactor-split`) only for code that does.
+  rule; split by responsibility only for code that does.
 
 ## Shell responsibilities
 
@@ -167,7 +167,7 @@ fast property and unit tests in routine checks.
 
 1. **Explore and reuse.** Map the critical paths (`/review-critical-paths`)
    and check for an existing kernel, core crate, or decision module before
-   creating one (`/refactor-reuse`). Extend a genuine kernel rather than
+   creating one. Extend a genuine kernel rather than
    starting a parallel one.
 2. **State the catastrophic failures and invariants.** List what must never
    happen and why, in the project's spec or agent docs.
@@ -177,7 +177,7 @@ fast property and unit tests in routine checks.
 4. **Extract decisions, not plumbing.** Move the decisions behind pure
    functions and state machines with typed inputs and verdicts. Leave I/O,
    retries, scheduling, and formatting in the shell. Delete the old in-place
-   logic so there is one authority (`/refactor-consolidate`), and make
+   logic so there is one authority, and make
    callers carry out the verdict without re-deriving it.
 5. **Harden the edges.** Validate and bound inputs, fail closed, version
    formats, contain secrets, and use checked arithmetic.
@@ -242,5 +242,4 @@ When designing, extracting, or reviewing a kernel, report:
 
 Related skills: `/pattern-state-machine`, `/pattern-versioning`,
 `/formal-verification`, `/cryptography`, `/review-critical-paths`,
-`/fallbacks`, `/fragile`, `/refactor-reuse`, `/refactor-consolidate`,
-`/refactor-split`, `/writing-tests`, `/spec`.
+`/fallbacks`, `/fragile`, `/writing-tests`, `/spec`.

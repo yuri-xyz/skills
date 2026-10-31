@@ -1,3 +1,0 @@
-interface:
-  short_description: "Type-safe Rust without escape hatches"
-  default_prompt: "Use $rust to model this code's states in the type system, make its matches exhaustive, and remove escape hatches such as unwrap, as casts, wildcard arms, and needless clones."

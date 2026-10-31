@@ -38,7 +38,7 @@ or may expose a real gap.
      behavior, architecture, data format, compatibility, scope, or risk.
 5. Fix every trivial gap directly at the owner of the behavior, with a
    focused test or assertion when the project has a test surface for it.
-   Keep fixes flat per `/layering`; do not patch symptoms downstream.
+   Keep fixes flat per `/root-cause`; do not patch symptoms downstream.
 6. Classify each decision gap as technical or human by `/decide`'s "Human
    versus technical decisions". Settle each technical gap with `/decide` as a
    delegated decision, then fix it like a trivial gap and report the choice

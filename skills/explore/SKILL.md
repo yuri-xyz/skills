@@ -1,6 +1,6 @@
 ---
 name: explore
-description: Use before planning, judging, or editing an unfamiliar or broad area of local code that needs understanding first.
+description: Use when an unfamiliar or broad area of local code needs understanding before planning, judging, or editing it.
 ---
 
 # Explore

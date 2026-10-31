@@ -1,0 +1,3 @@
+interface:
+  short_description: "Remove obsolete agenda entries and refresh outdated ones"
+  default_prompt: "Use $agenda-clean to find .agenda tasks, plans, and roadmap entries that are severely stale or no longer apply, remove or close them, bring still-valid but outdated ones up to date, and report what changed."

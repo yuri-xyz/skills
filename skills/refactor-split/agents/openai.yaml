@@ -1,3 +1,0 @@
-interface:
-  short_description: "Split monolithic code into cohesive modules with source files at 700 lines or fewer."
-  default_prompt: "Use $refactor-split to break the specified monolithic files or project into idiomatic, organized modules, continuing until every applicable source file in scope is at most 700 lines."

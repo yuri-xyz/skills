@@ -1,6 +1,6 @@
 ---
 name: spec-sync
-description: Use after substantial, directional, or contract-changing work has left parts of a project's `.spec/` specification stale.
+description: Use when substantial, directional, or contract-changing work has left parts of a project's `.spec/` specification stale.
 ---
 
 # Spec Sync

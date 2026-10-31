@@ -64,7 +64,7 @@ When an excluded dependency, such as an obscure crypto crate, shows strong trust
    Run `cargo audit` or `cargo deny check advisories` for unmaintained and unsound advisories, and compare the pinned version with the latest release.
 
 5. **Check removability.** A transitive dependency only leaves the tree when every parent drops it. Find who pulls it in with `cargo tree -i PACKAGE`. For transitive candidates, note whether a parent feature flag, a parent upgrade, or replacing the parent would remove it; otherwise mark it not removable by us.
-6. **Size the replacement.** Find our call sites and the items we use. Estimate the lines our own implementation would need, and whether existing project code already covers part of it, following `/refactor-reuse`.
+6. **Size the replacement.** Find our call sites and the items we use. Estimate the lines our own implementation would need, and whether existing project code already covers part of it.
 7. **Rank.** Order candidates by removability, trust signals, and the smallest replacement, and stop at a useful shortlist rather than listing the whole tree.
 
 ## Replacing A Candidate

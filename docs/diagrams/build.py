@@ -312,15 +312,15 @@ def finishing():
     f.node("work", 200, 190, 280, "Finished work", kind="start", shape="pill")
     f.node("checks", 200, 400, 280, "/checks", "what passes, what fails")
     f.node("gaps", 620, y, 300, "/gaps", "tag each leftover", kind="ask")
-    f.node("autofix", 620, 470, 300, "/autofix", "settle every tag", kind="violet", h=None)
+    f.node("settle", 620, 470, 300, "/gaps-settle", "settle every tag", kind="violet", h=None)
     f.node("decide", 1090, y, 240, "/decide", "agent picks")
-    f.node("un", 1480, 160, 320, "/unattended", "fix it now")
+    f.node("un", 1480, 160, 320, "Fix now", "small and safe")
     f.node("rec", 1480, 420, 320, "/gaps-record", "save as an agenda task", kind="store")
 
     f.edge([f.port("work", "s"), f.port("checks", "n")])
     wx, wy = f.port("work", "e")
     f.edge([(wx, wy), (400, wy), (400, y), f.port("gaps", "w")])
-    f.edge([f.port("autofix", "n"), f.port("gaps", "s")], dashed=True)
+    f.edge([f.port("settle", "n"), f.port("gaps", "s")], dashed=True)
     fork = 840
     gx, gy = f.port("gaps", "e")
     uy, ry = 160, 420
@@ -343,7 +343,7 @@ def decisions():
     xs = [485 + gap * i for i in range(4)]
     f.node("research", xs[0], y, 230, "/research", ["code, history,", "docs, prior art"])
     f.node("options", xs[1], y, 230, "/options", ["up to three", "candidates"])
-    f.node("criteria", xs[2], y, 230, "/criteria", ["/hacky, /layering", "cause or patch?"])
+    f.node("criteria", xs[2], y, 230, "/criteria", ["/root-cause", "cause or patch?"])
     f.node("approach", xs[3], y, 230, "/approach", ["durable and", "proportionate?"], kind="ask")
     f.node("rec", 1575, y, 190, "Proposal", kind="start", shape="pill")
     f.edge([f.port("q", "s"), f.port("kind", "n")])

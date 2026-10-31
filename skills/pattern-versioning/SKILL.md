@@ -90,7 +90,7 @@ another.
 Do not put every version into one large file full of `if version == Vn`
 branches, and do not create arbitrary tiny files just to satisfy the rule. If
 an existing file mixes version responsibilities, split it by cohesive version
-ownership with `/refactor-split`. Share a helper only when it is genuinely
+ownership. Share a helper only when it is genuinely
 version-neutral; a helper that encodes latest behavior belongs with the
 latest authority or the explicit version that owns it.
 
@@ -136,10 +136,9 @@ known version just because the latest number is the maximum currently present.
    latest/current/default role, or an ambiguous historical name. Preserve
    exact-version references; centralize role references; rename ambiguous
    names only when their meaning is clear.
-4. **Consolidate latest knowledge.** Follow `/refactor-reuse` when a suitable
-   authority already exists. If repeated latest values or logic have no owner,
-   use `/refactor-consolidate` to create the smallest shared constant, enum,
-   table, selector, or module. Do not build a broad versioning framework just
+4. **Consolidate latest knowledge.** Reuse a suitable authority when one
+   already exists. If repeated latest values or logic have no owner, create
+   the smallest shared constant, enum, table, selector, or module. Do not build a broad versioning framework just
    to remove a few literals.
 5. **Choose the version boundary.** Apply the compatible-feature, breaking-
    feature, older-version-bug, or migration rule above. State which explicit

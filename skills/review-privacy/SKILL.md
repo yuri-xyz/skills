@@ -1,6 +1,6 @@
 ---
 name: review-privacy
-description: Explicit invocation only. Use when the user wants privacy risks reviewed and controls recommended without making changes or running suspect software.
+description: Use when the user explicitly asks for privacy risks reviewed and controls recommended without making changes or running suspect software.
 disable-model-invocation: true
 ---
 

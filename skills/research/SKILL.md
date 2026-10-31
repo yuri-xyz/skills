@@ -1,6 +1,6 @@
 ---
 name: research
-description: Use before planning, debugging, designing, or fixing something that needs local and external context first.
+description: Use when planning, debugging, designing, or fixing something needs local and external context first.
 ---
 
 # Research

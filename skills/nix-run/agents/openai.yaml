@@ -1,0 +1,3 @@
+interface:
+  short_description: "Run a verified open-source CLI tool ad hoc via nix run"
+  default_prompt: "Use $nix-run to verify an open-source nixpkgs tool for this and run it ephemerally with `nix run`, without adding it as a project dependency."

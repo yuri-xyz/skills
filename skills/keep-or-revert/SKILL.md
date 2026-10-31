@@ -56,7 +56,7 @@ Remove or revise a previous change when it:
 
 - Was a temporary trial that the user says did not work.
 - Compensates for behavior now known not to be the root cause.
-- Shows a workaround signature from `/layering` that is no longer justified.
+- Shows a workaround signature from `/root-cause` that is no longer justified.
 - Makes the code harder to understand without a confirmed benefit.
 - Encodes misleading comments, assumptions, logs, or temporary markers from a failed hypothesis.
 - Conflicts with the better root-cause fix.

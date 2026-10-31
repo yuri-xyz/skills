@@ -305,5 +305,4 @@ If the fallback is correct, say why its input is legitimately optional, why
 the substitute is semantically valid, and where the degraded behavior is
 contained.
 
-Related skills: /hacky, /layering, /writing-tests, and /rust-async where
-applicable.
+Related skills: /root-cause and /writing-tests where applicable.

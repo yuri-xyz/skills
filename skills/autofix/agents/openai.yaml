@@ -1,6 +1,0 @@
-interface:
-  short_description: "Record, fix or decide leftover work by its category"
-  default_prompt: "Use $autofix to settle the leftover work from the last report: record the deferred items, decide the decision items with $decide, and fix the unattended ones."
-
-policy:
-  allow_implicit_invocation: false

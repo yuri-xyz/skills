@@ -11,7 +11,7 @@ Assess whether the current proposal is the right long-term architecture for the 
 
 This is an architecture judgment skill, not an implementation shortcut. Think hard, read relevant code when applicable, and give a concrete recommendation.
 
-This is the deepest member of the judge family and owns its verdict discipline: lead with the verdict, then the reasoning, and never bury the recommendation. Reach for a narrower sibling when the question is narrower — `/hacky` for a quick checkpoint mid-implementation, `/layering` for whether a fix is stacked on top of broken behavior, `/options` for ranking several candidate approaches, `/dependency-judge` for local code versus a package, `/keep-or-revert` for whether earlier changes should survive new evidence, `/criteria` for rating a new feature or design on usefulness, soundness, consistency, and proportionality.
+This is the deepest member of the judge family and owns its verdict discipline: lead with the verdict, then the reasoning, and never bury the recommendation. Reach for a narrower sibling when the question is narrower — `/root-cause` for a quick checkpoint on whether a fix is a workaround stacked on top of broken behavior, `/options` for ranking several candidate approaches, `/dependency-judge` for local code versus a package, `/keep-or-revert` for whether earlier changes should survive new evidence, `/criteria` for rating a new feature or design on usefulness, soundness, consistency, and proportionality.
 
 ## Workflow
 
@@ -37,7 +37,7 @@ Prefer a proposal when it:
 
 Be skeptical of a proposal when it:
 
-- Shows any of the workaround signatures defined in `/layering`.
+- Shows any of the workaround signatures defined in `/root-cause`.
 - Makes the system harder to reason about, test, or evolve.
 - Requires broad churn without clear root-cause payoff.
 - Adds abstraction that no second caller needs yet.

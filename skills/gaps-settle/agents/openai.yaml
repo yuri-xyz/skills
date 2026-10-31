@@ -1,0 +1,3 @@
+interface:
+  short_description: "Record, decide, or fix leftover work by its category"
+  default_prompt: "Use $gaps-settle to settle the leftover work from the last report or this conversation: record the deferred items, decide the decision items with $decide, and fix the unattended ones."

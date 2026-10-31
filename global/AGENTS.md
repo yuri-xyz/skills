@@ -12,9 +12,7 @@ These rules apply across all repositories.
 - Write idiomatic, maintainable code that follows the repository's existing conventions.
 - Before adding new logic, functions, helpers, classes, or similar code, check
   whether something already defined does the same thing. Prefer reusing,
-  extending, or consolidating it, using `/refactor-reuse`,
-  `/refactor-consolidate`, or `/refactor-dedupe` where they fit, over adding a
-  parallel implementation.
+  extending, or consolidating it over adding a parallel implementation.
 - Do not keep, add, or preserve legacy code, compatibility paths, or deprecated behavior unless the repository explicitly documents that legacy support is intentional.
 
 ## Decisions

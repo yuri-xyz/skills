@@ -143,7 +143,7 @@ errors. Prefer the loud failure.
    set from source, docs, or observation before writing the check.
 4. Ask what structure is already available at that point — a parsed value, a
    typed error, an enum, a schema, a machine-readable mode, an existing helper
-   in this repo (see `/refactor-reuse`).
+   in this repo.
 5. If a stronger check is available and reasonable here, use it.
 6. If it is not, keep the weak check, constrain it, make its failure loud, and
    say why in a comment.
@@ -165,4 +165,4 @@ errors. Prefer the loud failure.
 - When the answer turns into an architecture question rather than a local
   choice of check, escalate to `/approach`. When the weak check exists to
   paper over behavior that is already wrong elsewhere, escalate to
-  `/layering`.
+  `/root-cause`.

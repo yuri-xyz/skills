@@ -243,8 +243,8 @@ above applies to any language:
   codes.
 - [Rust processes, configuration, and safety](references/rust-processes-config-and-safety.md)
   when invoking children, handling signals, writing files, or adding XDG/config
-  behavior. Follow the platform's conventions for low-level Linux integration, and use `/rust-async`
-  for runtime-specific async cancellation or subprocess work when available.
+  behavior. Follow the platform's conventions for low-level Linux integration and the
+  async runtime's conventions for cancellation and subprocess work.
 - [Rust testing and packaging](references/rust-testing-and-packaging.md)
   before finishing a public Rust CLI or changing its package.
 

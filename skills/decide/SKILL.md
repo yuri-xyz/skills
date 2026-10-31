@@ -10,7 +10,7 @@ description: Use when facing an important, complex, or hard-to-reverse technical
 Reach the best overall solution to an important or complex problem through
 deliberate research and judgment, instead of jumping to the first plausible
 fix. This skill combines `/research`, `/research-web`, `/options`,
-`/criteria`, `/hacky`, `/layering`, and `/approach`.
+`/criteria`, `/root-cause`, and `/approach`.
 The deliverable is a well-grounded proposal, not an immediate implementation.
 
 ## Workflow
@@ -35,7 +35,7 @@ The deliverable is a well-grounded proposal, not an immediate implementation.
 6. **Rate with `/criteria`.** Rate each remaining candidate on
    usefulness, soundness, consistency, and proportionality, and let any `Weak`
    or `Violated` rating reshape or eliminate it.
-7. **Screen for hacks with `/hacky` and `/layering`.** Check each
+7. **Screen for hacks with `/root-cause`.** Check each
    remaining candidate for workarounds, symptom patches, and fixes layered on
    top of broken behavior instead of changing the code that owns it. Replace
    such candidates with the root-cause version, or drop them.
@@ -73,7 +73,7 @@ first.
 ## Delegated decisions
 
 By default this skill proposes. When the user or a calling skill delegates a
-decision, such as `/autofix`, `/unblock`, `/wizard`, an unattended `/goal`, or
+decision, such as `/gaps-settle`, `/unblock`, `/wizard`, an unattended `/goal`, or
 an agent settling a technical question mid-task under the user's standing
 instructions, settle each **technical** decision by adopting the recommendation,
 record the decision and its one-line rationale where the caller keeps its
@@ -90,8 +90,7 @@ request for web research.
 - Key findings from local and web research, with file references and source
   links.
 - The `/options` comparison and the `/criteria` ratings.
-- The `/hacky` and `/layering` findings, briefly, and the
-  `/approach` verdict for the recommendation.
+- The `/root-cause` findings, briefly, and the `/approach` verdict for the recommendation.
 - The recommended solution or solutions, why they win, and the main risks or
   open decisions that remain for the user.
 

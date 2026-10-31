@@ -51,7 +51,7 @@ the way the project records it.
    this project the goal touches: the modules that own related behavior, the
    helpers and abstractions already available, the configuration and option
    models, naming conventions, error handling, tests, and documentation
-   patterns. Use `/explore` or `/refactor-reuse` search technique as needed.
+   patterns. Use `/explore` as needed.
 
 3. **Decompose the incoming work.** Break it into its parts and classify each:
    - **Already covered:** the project already does this. Use the existing
@@ -123,11 +123,9 @@ Summarize the adaptation briefly:
 
 ## Related Skills
 
-- `/refactor-reuse`: owns the search technique and match rules for deciding
-  whether existing code already covers a need.
 - `/reference`: use alongside this skill when the source is a reference that
   must be learned from without copying code, branding, or provenance.
 - `/harvest`: use instead when the task is to discover and propose
   improvements from another repository rather than bring in a known one.
-- `/suggestion`: use when the incoming idea itself is optional and may be
+- `/hint`: use when the incoming idea itself is optional and may be
   rejected; adapt assumes it should land.

@@ -55,7 +55,7 @@ repository.
 Run tools inside the dev shell:
 
 ```sh
-nix develop
+nix develop                   # dev shell with nixfmt and statix
 nix fmt                       # format flake.nix with nixfmt
 statix check flake.nix
 nix flake check --no-build    # evaluate all checks

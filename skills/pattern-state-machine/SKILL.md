@@ -48,9 +48,8 @@ one lifecycle. For genuinely concurrent work, model each independent workflow
 as its own machine and coordinate the machines explicitly. Do not hide a
 cross-product of unrelated boolean flags inside one enormous enum.
 
-For async runtime, cancellation, and task ownership details, also use
-`/rust-async` when the project is Rust. This skill owns the domain transition
-model, not every concern around it.
+This skill owns the domain transition model, not every concern around it,
+such as async runtime, cancellation, and task ownership details.
 
 ## Core model
 
@@ -81,13 +80,13 @@ properties are:
 For small machines, one focused `transition` function and a match/table may be
 clearest. For larger machines, split state-specific behavior into cohesive
 modules while keeping the state/event contract and transition ownership easy to
-find. Use `/refactor-split` if one state-machine file becomes monolithic.
+find. Split one state-machine file once it becomes monolithic.
 
 ## Design workflow
 
 1. **Check existing ownership first.** Search nearby modules, types, helpers,
    reducers, workflow code, and error models before adding another state enum or
-   transition path. Apply `/refactor-reuse` to extend a genuine existing
+   transition path. Extend a genuine existing
    machine or shared type rather than creating a parallel implementation.
 
 2. **Confirm the boundary and the owner.** Identify what one machine represents:
@@ -147,7 +146,7 @@ find. Use `/refactor-split` if one state-machine file becomes monolithic.
    should likewise be recorded at the common transition boundary when they have
    one meaning.
 
-   Use `/refactor-consolidate` for a new shared owner when repeated error data,
+   Create one shared owner when repeated error data,
    transitions, or recovery logic has no canonical implementation. Do not
    collapse distinct domain failures merely to share an enum: map them to common
    diagnostics while retaining their different recovery behavior when needed.
@@ -239,6 +238,5 @@ When editing or reviewing a stateful system, report:
 - invalid, terminal, cancellation, retry, timeout, and restart behavior;
 - focused tests or checks run and any remaining graph or recovery risks.
 
-Related skills: `/refactor-reuse`, `/refactor-consolidate`, `/refactor-split`,
-`/writing-tests`, `/rust-async`, and `/pattern-kernel` (when
+Related skills: `/writing-tests` and `/pattern-kernel` (when
 the machine guards auth, money, keys, or durable data) where applicable.
