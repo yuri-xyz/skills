@@ -1,0 +1,3 @@
+interface:
+  short_description: "Add targeted file-based debug logs for issue investigation"
+  default_prompt: "Use $debug to add targeted debug logs around suspicious code paths, keep them grep-friendly, and leave useful logs in place until $debug-cleanup."

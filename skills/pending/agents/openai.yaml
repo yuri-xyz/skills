@@ -1,0 +1,3 @@
+interface:
+  short_description: "Summarize ready agenda tasks and plans by area, importance, and independence"
+  default_prompt: "Use $pending to summarize the ready pending agenda tasks and plans, grouped by area, sorted by importance, marking independent entries, and leaving out blocked entries."

@@ -1,0 +1,6 @@
+interface:
+  short_description: "Create the project's initial .spec/ specification"
+  default_prompt: "Use $spec-init to create this project's initial spec under .spec/, distilled from the existing code."
+
+policy:
+  allow_implicit_invocation: false

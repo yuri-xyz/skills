@@ -1,0 +1,3 @@
+interface:
+  short_description: "Research a subject using external web sources"
+  default_prompt: "Use $research-web to look up relevant GitHub repositories, documentation, and other external sources about this subject, and report findings with sources."

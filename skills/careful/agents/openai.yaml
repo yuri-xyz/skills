@@ -1,0 +1,3 @@
+interface:
+  short_description: "Keep work reversible and ask before irreversible steps"
+  default_prompt: "Use $careful to do this work without losing anything: no destructive git commands, live systems changed one reversible step at a time, and my permission before any irreversible action."

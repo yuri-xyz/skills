@@ -1,0 +1,3 @@
+interface:
+  short_description: "Fix lint and build failures cleanly."
+  default_prompt: "Fix all lint, warning, build, and check failures with root-cause fixes until every applicable check is green."

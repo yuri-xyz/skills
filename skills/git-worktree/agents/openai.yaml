@@ -1,0 +1,3 @@
+interface:
+  short_description: "Move work into a new, aptly named feature worktree"
+  default_prompt: "Use $git-worktree to commit pending changes and continue this work in a new feature worktree without disturbing anyone else's work."

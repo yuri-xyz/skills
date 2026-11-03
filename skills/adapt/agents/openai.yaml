@@ -1,0 +1,3 @@
+interface:
+  short_description: "Integrate external work into the existing architecture"
+  default_prompt: "Use $adapt to bring this in so it fits our existing architecture, reusing what we have and integrating anything new consistently alongside it."

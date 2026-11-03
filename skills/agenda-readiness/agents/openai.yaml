@@ -1,0 +1,3 @@
+interface:
+  short_description: "Classify agenda entries as in progress, ready, manual, blocked, waiting, or exploratory"
+  default_prompt: "Use $agenda-readiness to classify the pending agenda tasks and plans as in progress, ready, manual, decision-blocked, waiting, underspecified, or exploratory or deferred."

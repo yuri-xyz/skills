@@ -1,0 +1,3 @@
+interface:
+  short_description: "Audit for nondeterminism that breaks other systems"
+  default_prompt: "Use $review-hermetic to audit this for nondeterminism traps (timestamps, random IDs, host paths, unstable iteration, timing/order assumptions) before treating it as done."

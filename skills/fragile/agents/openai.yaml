@@ -1,0 +1,3 @@
+interface:
+  short_description: "Strengthen fragile checks in core logic"
+  default_prompt: "Use $fragile to check whether this work's core logic relies on weak pattern matching, string sniffing, or guessed sets of expected values where a parser, typed API, enum, or machine-readable interface is available and preferable, and strengthen those checks where it applies. Never guess the values something can produce: establish the real set from the dependency's source, its documentation, or authorized observation. Tests and assertions are out of scope."

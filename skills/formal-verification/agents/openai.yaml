@@ -1,0 +1,3 @@
+interface:
+  short_description: "Choose whether and how to formally verify a property"
+  default_prompt: "Use $formal-verification to decide whether this logic deserves formal verification and pick the right role and tool, such as Quint, Kani, shuttle, or Lean 4."

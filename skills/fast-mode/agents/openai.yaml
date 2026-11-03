@@ -1,0 +1,6 @@
+interface:
+  short_description: "Focus on implementation and defer broad or slow checks, builds, and tests"
+  default_prompt: "Use $fast-mode to focus on writing code and implementing plan steps, time-boxing commands at 3 minutes and deferring broad or slow checks, builds, and tests."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,3 @@
+interface:
+  short_description: "Merge this worktree back and remove it safely"
+  default_prompt: "Use $git-worktree-finish to commit this worktree's pending work, merge it back into the default branch with regular merges, resolve conflicts properly, and remove the worktree only after verifying nothing can be lost."

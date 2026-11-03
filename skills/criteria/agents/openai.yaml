@@ -1,0 +1,3 @@
+interface:
+  short_description: "Rate a proposal on usefulness, soundness, consistency, and proportionality"
+  default_prompt: "Use $criteria to rate the current proposal on usefulness, soundness, consistency, and proportionality, and base the decision on those ratings."

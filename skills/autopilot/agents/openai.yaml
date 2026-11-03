@@ -1,0 +1,6 @@
+interface:
+  short_description: "Implement and commit the ready, code-focused agenda backlog"
+  default_prompt: "Use $autopilot to pick ready, settled, code-focused agenda tasks in bundles of three to five, then ready plans, implement each unit with $agenda-implement, commit it, and repeat until none are left."
+
+policy:
+  allow_implicit_invocation: false

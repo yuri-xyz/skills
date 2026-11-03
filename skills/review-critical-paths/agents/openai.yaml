@@ -1,0 +1,3 @@
+interface:
+  short_description: "Find an app's critical paths and review each with every lens"
+  default_prompt: "Use $review-critical-paths to locate this app's most critical code paths and review each with the security, HTTP, cryptography, and bug review skills."

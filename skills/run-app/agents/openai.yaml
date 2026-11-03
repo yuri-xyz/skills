@@ -1,0 +1,6 @@
+interface:
+  short_description: "Run the app locally in the background for manual testing"
+  default_prompt: "Use $run-app to start this project's app (server, frontend, or whatever it needs) through its declared development environment, running in the background, so I can test it locally until I tell you to stop it."
+
+policy:
+  allow_implicit_invocation: false

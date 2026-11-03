@@ -1,0 +1,6 @@
+interface:
+  short_description: "Harvest useful ideas from relevant academic papers"
+  default_prompt: "Use $research-literature to find academic papers relevant to this work, filter them by abstract, narrow them with $criteria, harvest every useful idea from the final set with $harvest, and propose decisions through $interview if I'm deciding something."
+
+policy:
+  allow_implicit_invocation: true

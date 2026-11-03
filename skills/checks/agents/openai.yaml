@@ -1,0 +1,3 @@
+interface:
+  short_description: "Run repo validation checks and summarize pass or fail"
+  default_prompt: "Use $checks to run the applicable repo checks, skip opt-in suites by default, and return a pass/fail summary."

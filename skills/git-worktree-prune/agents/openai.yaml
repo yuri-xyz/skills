@@ -1,0 +1,6 @@
+interface:
+  short_description: "Finish leftover worktrees and skip active ones"
+  default_prompt: "Use $git-worktree-prune to find leftover feature worktrees, skip active ones, and land and remove the rest one at a time with $git-worktree-finish."
+
+policy:
+  allow_implicit_invocation: false

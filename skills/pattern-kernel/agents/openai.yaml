@@ -1,0 +1,3 @@
+interface:
+  short_description: "Isolate critical logic into a small, pure, verifiable kernel"
+  default_prompt: "Use $pattern-kernel when auth, balances, cryptography, key custody, formats, sync, or backup logic could lose data, leak secrets, or grant access; isolate its decisions into a pure, auditable kernel with named invariants and verification evidence."

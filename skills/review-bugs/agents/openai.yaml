@@ -1,0 +1,3 @@
+interface:
+  short_description: "Review changes for latent edge-case bugs"
+  default_prompt: "Use $review-bugs to review this change for off-by-one errors, unbounded inputs and work, overflow, unchecked division, implicit conversions, Unicode handling, and missing edge-case tests."

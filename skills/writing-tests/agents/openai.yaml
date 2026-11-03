@@ -1,0 +1,3 @@
+interface:
+  short_description: "Write focused, deterministic, high-value tests"
+  default_prompt: "Use $writing-tests to choose the right test scope and write focused unit-first coverage with meaningful edge and failure cases."

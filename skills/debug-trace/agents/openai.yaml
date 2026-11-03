@@ -1,0 +1,3 @@
+interface:
+  short_description: "Record bug evidence and next debug directions"
+  default_prompt: "Use $debug-trace to update the current bug investigation trace whenever debugging produces new evidence, ruled-out theories, or next directions."

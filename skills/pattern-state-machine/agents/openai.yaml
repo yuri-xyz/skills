@@ -1,0 +1,3 @@
+interface:
+  short_description: "Design explicit finite-state workflows and transitions"
+  default_prompt: "Use $pattern-state-machine when a non-trivial system has bounded states and transitions; model its state, events, effects, failures, recovery, and tests explicitly."

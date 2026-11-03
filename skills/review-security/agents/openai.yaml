@@ -1,0 +1,3 @@
+interface:
+  short_description: "Review code for security holes or audit for recent CVEs"
+  default_prompt: "Use $review-security to review this change for injection and code execution paths, memory corruption, attacker-reachable bounds and exhaustion, path traversal, broken authorization, and secret exposure."

@@ -1,0 +1,3 @@
+interface:
+  short_description: "Summarize unrecorded work left undone after finishing"
+  default_prompt: "Use $gaps to report the worthwhile code or configuration work left undone and not yet recorded, ordered by priority."

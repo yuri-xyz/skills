@@ -1,0 +1,3 @@
+interface:
+  short_description: "Separated specs plus formal verification obligations"
+  default_prompt: "Use $spec to write or review this spec against the spec standard."

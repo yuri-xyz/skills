@@ -1,0 +1,3 @@
+interface:
+  short_description: "Compare proposed approaches in structure"
+  default_prompt: "Use $options to compare the top proposed approaches with pros, cons, and what each entails."

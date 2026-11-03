@@ -1,0 +1,6 @@
+interface:
+  short_description: "Verify recent work covers given edge cases"
+  default_prompt: "Use $edge-case to check whether the recent work handles these edge cases, fix obvious gaps, and interview me about gaps that need decisions."
+
+policy:
+  allow_implicit_invocation: false

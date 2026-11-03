@@ -1,0 +1,6 @@
+interface:
+  short_description: "Review telemetry, persistence, and data exposure"
+  default_prompt: "Use $review-privacy to review this software for telemetry, unnecessary persistence, and proportionate isolation options without making changes."
+
+policy:
+  allow_implicit_invocation: false

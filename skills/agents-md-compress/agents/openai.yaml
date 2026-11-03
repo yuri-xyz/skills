@@ -1,0 +1,3 @@
+interface:
+  short_description: "Densify AGENTS.md without losing any rule"
+  default_prompt: "Use $agents-md-compress to compress this repository's AGENTS.md while preserving every rule."

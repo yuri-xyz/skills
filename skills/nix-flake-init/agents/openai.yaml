@@ -1,0 +1,3 @@
+interface:
+  short_description: "Create a project flake with build, shell, and checks"
+  default_prompt: "Use $nix-flake-init to create a proper Nix flake for this project, with pinned inputs, a real package build, a dev shell, and checks."

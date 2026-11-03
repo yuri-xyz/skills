@@ -1,0 +1,3 @@
+interface:
+  short_description: "Gather repo and web context before decisions"
+  default_prompt: "Use $research to inspect relevant repo context, search for related external information, and summarize what matters before proceeding."

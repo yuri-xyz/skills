@@ -1,0 +1,3 @@
+interface:
+  short_description: "Vet a new third-party dependency before adding it"
+  default_prompt: "Use $dependency-add to find, filter, and security-check candidates for this dependency, add the ones that meet the trust bar, and ask me about the rest."

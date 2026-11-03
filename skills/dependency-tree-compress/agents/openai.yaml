@@ -1,0 +1,3 @@
+interface:
+  short_description: "Find small, low-trust dependencies to replace with our own code"
+  default_prompt: "Use $dependency-tree-compress to scan this project's dependency tree for small, low-trust dependencies we could replace with our own implementation, skipping trusted and security-critical ones, and rank the candidates."

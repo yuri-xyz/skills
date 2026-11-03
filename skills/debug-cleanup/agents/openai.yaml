@@ -1,0 +1,3 @@
+interface:
+  short_description: "Remove temporary debug and failed attempts"
+  default_prompt: "Use $debug-cleanup to remove temporary debug logs and failed workaround attempts while preserving unrelated or genuinely useful changes."

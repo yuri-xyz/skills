@@ -1,0 +1,3 @@
+interface:
+  short_description: "Mark temporary changes and trial fixes with clear TEMP comments."
+  default_prompt: "Use $temp to make this change temporary, or to try this fix as a trial until I confirm whether it works, with a concise // TEMP: explanation."

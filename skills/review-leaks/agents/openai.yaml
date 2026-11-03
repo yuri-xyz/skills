@@ -1,0 +1,3 @@
+interface:
+  short_description: "Check what ships for private workflow material"
+  default_prompt: "Use $review-leaks to check the source, build output, and history about to be published or deployed for agenda, spec, debug, reference, licensing, agent, transcript, decision, or secrets material."

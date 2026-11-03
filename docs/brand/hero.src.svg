@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1720" height="602" viewBox="0 0 1720 602">
+  <!-- render.sh fills the backdrop markers from ../diagrams/build.py. -->
+  <defs>
+<!-- backdrop defs -->
+    <radialGradient id="spot" cx="0.78" cy="0.45" r="0.55">
+      <stop offset="0" stop-color="#7c5cff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8b7bff"/>
+      <stop offset="1" stop-color="#4fd1c5"/>
+    </linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+
+<!-- backdrop -->
+  <rect width="1720" height="602" fill="url(#spot)" clip-path="url(#card)"/>
+
+  <g transform="scale(1.075)">
+    <!-- Wordmark -->
+    <g font-family="JetBrains Mono" fill="#e8ecff">
+      <text x="110" y="250" font-size="148" font-weight="800" letter-spacing="-6">skills</text>
+      <path d="M152 106 H564 C622 106 636 120 636 178 V218 C636 276 622 290 564 290 H152 C94 290 80 276 80 218 V178 C80 120 94 106 152 106 Z" fill="none" stroke="url(#accent)" stroke-width="8"/>
+      <text x="112" y="356" font-size="34" font-weight="500" fill="#b6bdd9">Agent skills for Claude Code, Codex,</text>
+      <text x="112" y="402" font-size="34" font-weight="500" fill="#b6bdd9">and other coding agents.</text>
+    </g>
+
+    <!-- Card stack: SKILL.md files -->
+    <g font-family="JetBrains Mono" font-size="21">
+      <g transform="translate(1010 70) rotate(6)" opacity="0.55" filter="url(#shadow)">
+        <rect width="460" height="300" rx="18" fill="#1b2142" stroke="#2c3463"/>
+        <circle cx="34" cy="34" r="7" fill="#3a4374"/>
+        <circle cx="58" cy="34" r="7" fill="#3a4374"/>
+        <circle cx="82" cy="34" r="7" fill="#3a4374"/>
+        <rect x="112" y="28" width="220" height="12" rx="6" fill="#323b6c"/>
+        <line x1="0" y1="62" x2="460" y2="62" stroke="#2c3463"/>
+        <g fill="#2f3868">
+          <rect x="32" y="94" width="150" height="12" rx="6"/>
+          <rect x="32" y="128" width="340" height="12" rx="6"/>
+          <rect x="32" y="162" width="390" height="12" rx="6"/>
+          <rect x="32" y="196" width="280" height="12" rx="6"/>
+          <rect x="32" y="230" width="360" height="12" rx="6"/>
+        </g>
+      </g>
+      <g transform="translate(975 105) rotate(2.5)" opacity="0.8" filter="url(#shadow)">
+        <rect width="460" height="300" rx="18" fill="#1d2448" stroke="#323b6e"/>
+        <circle cx="34" cy="34" r="7" fill="#414b80"/>
+        <circle cx="58" cy="34" r="7" fill="#414b80"/>
+        <circle cx="82" cy="34" r="7" fill="#414b80"/>
+        <rect x="112" y="28" width="240" height="12" rx="6" fill="#384275"/>
+        <line x1="0" y1="62" x2="460" y2="62" stroke="#323b6e"/>
+        <g fill="#333d70">
+          <rect x="32" y="94" width="120" height="12" rx="6"/>
+          <rect x="32" y="128" width="370" height="12" rx="6"/>
+          <rect x="32" y="162" width="310" height="12" rx="6"/>
+          <rect x="32" y="196" width="400" height="12" rx="6"/>
+          <rect x="32" y="230" width="240" height="12" rx="6"/>
+        </g>
+      </g>
+      <g transform="translate(930 150) rotate(-2)" filter="url(#shadow)">
+        <rect width="500" height="320" rx="18" fill="#20284f" stroke="#3b4580"/>
+        <circle cx="34" cy="34" r="7" fill="#ff6b81"/>
+        <circle cx="58" cy="34" r="7" fill="#ffc861"/>
+        <circle cx="82" cy="34" r="7" fill="#5ee3a1"/>
+        <text x="112" y="41" fill="#8d97c9">skills/decide/SKILL.md</text>
+        <line x1="0" y1="62" x2="500" y2="62" stroke="#3b4580"/>
+        <text x="32" y="108" fill="#6f78a8">---</text>
+        <text x="32" y="146"><tspan fill="#8b7bff">name</tspan><tspan fill="#8d97c9">: </tspan><tspan fill="#e8ecff">decide</tspan></text>
+        <text x="32" y="184"><tspan fill="#8b7bff">description</tspan><tspan fill="#8d97c9">: </tspan><tspan fill="#4fd1c5">Use when facing</tspan></text>
+        <text x="32" y="216" fill="#4fd1c5">  an important, complex, or</text>
+        <text x="32" y="248" fill="#4fd1c5">  hard-to-reverse technical</text>
+        <text x="32" y="280" fill="#4fd1c5">  decision ...</text>
+      </g>
+    </g>
+  </g>
+</svg>

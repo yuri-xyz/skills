@@ -1,0 +1,3 @@
+interface:
+  short_description: "Update .spec/ after substantial changes"
+  default_prompt: "Use $spec-sync to update this project's spec for the changes that were just made."
