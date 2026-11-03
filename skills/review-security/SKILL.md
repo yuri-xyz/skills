@@ -84,8 +84,7 @@ review, and report them separately.
 - Broad rewrites or new dependencies without approval; follow
   `/dependency-add` for any new library.
 - Overlapping other lenses: plain correctness bugs belong to `/review-bugs`
-  unless an attacker can trigger them for impact; data collection and
-  telemetry belong to `/review-privacy`.
+  unless an attacker can trigger them for impact.
 
 ## Code review output
 

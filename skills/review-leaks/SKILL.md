@@ -1,6 +1,6 @@
 ---
 name: review-leaks
-description: Use when something is about to be published, deployed, exposed, open-sourced, or packaged, such as a deploy, a release, or a package upload, and its source tree, build output, or history must be checked for private workflow material, such as agenda, spec, debug, reference, licensing, agent, or secrets files, decision records, or agent transcripts. For personal and machine-identifying details use /review-pii, and for runtime telemetry and data collection use /review-privacy.
+description: Use when something is about to be published, deployed, exposed, open-sourced, or packaged, such as a deploy, a release, or a package upload, and its source tree, build output, or history must be checked for private workflow material, such as agenda, spec, debug, reference, licensing, agent, or secrets files, decision records, or agent transcripts. For personal and machine-identifying details use /review-pii.
 ---
 
 # Review Leaks

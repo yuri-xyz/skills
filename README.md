@@ -264,7 +264,6 @@ Focused reviews of changes and releases.
 - [`review-http-security`](skills/review-http-security/SKILL.md): Checks web servers and APIs for missing hardening, from authentication and CORS to limits and TLS.
 - [`review-critical-paths`](skills/review-critical-paths/SKILL.md): Finds your app's most sensitive code, like auth, payments, and deletion, and reviews it in depth.
 - [`review-hermetic`](skills/review-hermetic/SKILL.md): Catches code, builds, and tests that give different results on different runs or machines.
-- [`review-privacy`](skills/review-privacy/SKILL.md): Reviews what data your software collects or keeps, aiming for no telemetry and no needless records.
 - [`review-malware`](skills/review-malware/SKILL.md): Audits a dependency for deliberate malware such as stealers, miners, or backdoors.
 - [`review-leaks`](skills/review-leaks/SKILL.md): Before you publish, checks that no private notes, agent files, or secrets ship by accident.
 - [`review-pii`](skills/review-pii/SKILL.md): Before you publish, checks for personal or machine details such as names, emails, home paths, and hostnames.

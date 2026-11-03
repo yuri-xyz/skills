@@ -65,7 +65,7 @@ working code to guard against inputs that cannot reach it.
 - Speculative limits with no reasoning behind the number; state why each
   limit is what it is.
 - Overlapping other lenses: use `/review-perf` for speed, `/review-hermetic`
-  for nondeterminism, and `/review-privacy` for data exposure. Report
+  for nondeterminism. Report
   security-relevant findings, such as path traversal or injection, and
   leave the security pass to `/review-security`.
 

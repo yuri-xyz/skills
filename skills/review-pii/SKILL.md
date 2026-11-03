@@ -1,6 +1,6 @@
 ---
 name: review-pii
-description: Use when recent work, the material under discussion, a commit, a build, or something about to be published or deployed should be checked for personal or machine-identifying details, such as the user's name, emails other than their GitHub commit email, phone numbers, addresses, home paths, hostnames, IP or MAC addresses, hardware, disk, or device IDs, or passwords. For private workflow files such as agenda, spec, or agent material use /review-leaks, and for runtime telemetry and data collection use /review-privacy.
+description: Use when recent work, the material under discussion, a commit, a build, or something about to be published or deployed should be checked for personal or machine-identifying details, such as the user's name, emails other than their GitHub commit email, phone numbers, addresses, home paths, hostnames, IP or MAC addresses, hardware, disk, or device IDs, or passwords. For private workflow files such as agenda, spec, or agent material use /review-leaks.
 ---
 
 # Review PII
